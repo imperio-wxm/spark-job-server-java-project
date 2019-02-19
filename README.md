@@ -14,9 +14,11 @@ It takes three input parameters
 3.lr model location
 
 Notes:
-1. Start SJS by
+1. Start SJS by:
    job-server-extras/reStart  (reStart is not working with sqlcontext)
-2. Start JavaSparkContext instead of sparkContext
+   
+2. Start JavaSparkContext instead of sparkContext:
 curl -d "" "localhost:8090/contexts/jcontext?context-factory=spark.jobserver.context.JavaSparkContextFactory"
+
 3. Query example:
 curl -d 'input.comments="yummy, great food, love love love",input.cvmodel="<cv location>",input.lrmodel="<lr location>"' "localhost:8090/jobs?appName=testml&classPath=spark.jobserver.SparkModelDeploy&context=jcontext&sync=true&context-factory=spark.jobserver.context.JavaSparkContextFactory&timeout=100000"
